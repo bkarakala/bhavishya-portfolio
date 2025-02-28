@@ -21,88 +21,73 @@ function Hero() {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <main>
       <Dropdown isOpen={isOpen} toggle={toggle} />
       <Header toggle={toggle} />
+
       <HeroContainer>
         <HeroWrapper>
+          
+          {/* Left Section - Text Animation */}
           <HeroLeft>
-            <ScrollAnimation animateIn="fadeIn" >
+            <ScrollAnimation animateIn="fadeIn">
               <TypeAnimation
                 cursor={false}
                 sequence={[
-                  'Hi, I\'m Bhavishya.',
-                  () => setShowSubtitle(true)
+                  "Hi, I'm Bhavishya.",
+                  () => setShowSubtitle(true),
                 ]}
                 speed={{ type: "keyStrokeDelayInMs", value: 150 }}
                 wrapper="h1"
                 repeat={0}
               />
-              {showSubtitle &&
+              
+              {showSubtitle && (
                 <TypeAnimation
                   cursor={true}
                   sequence={[
                     500,
-                    'A Full-Stack Developer.',
+                    "A Full-Stack Developer.",
                     1000,
-                    'A SLU graduate.',
+                    "A SLU graduate.",
                     1000,
-                    'A problem solver.',
+                    "A problem solver.",
                     1000,
-                    'An innovative thinker.',
+                    "An innovative thinker.",
                     1000,
-                    'A....',
-                    
-                    1000,
-                    "Ok...",
-                    1000,
-                    "Ok...  I'm running out of ideas...",
-                    1000,
-                    "Uhh...",
-                    1000,
-                    "Uhh... you can scroll down to see my projects now...",
-                    300,
-                    () => setShowScrollDown(true),
-                    1000,
-                    "Seriously, my projects are really cool, go check them out!",
-                    1000,
-                    "You're uh...",
-                    1000,
-                    "You're uh... still here?",
-                    1000,
-                    "Ok, this has been fun, but I'm gonna restart the loop now...",
-                    
-                    1000,
-                    "See ya! :)",
+                    "Scroll down to see my projects!",
                     500,
+                    () => setShowScrollDown(true),
                   ]}
                   speed={50}
                   deletionSpeed={65}
                   wrapper="h5"
                   repeat={Infinity}
                 />
-              }
+              )}
             </ScrollAnimation>
-
           </HeroLeft>
+
+          {/* Right Section - Profile Picture */}
           <HeroRight>
             <ScrollAnimation animateIn="fadeIn">
-              <Image
-                src="/profilepictue.jpeg"
-                alt="profilepictue.jpeg"
-              />
+              <Image src="/profilepic.png" alt="profile-picture" />
             </ScrollAnimation>
           </HeroRight>
-        </HeroWrapper>
-        {showScrollDown &&<ScrollAnimation animateIn="flipInX" offset={0}>
-        <ScrollDown to="projects" id="scrollDown">
-          <ScrollLink>
-            Scroll down
 
-          </ScrollLink>
-        </ScrollDown>
-        </ScrollAnimation>}
+        </HeroWrapper>
+
+        {/* Scroll Down Indicator */}
+        {showScrollDown && (
+          <ScrollAnimation animateIn="flipInX" offset={0}>
+            <ScrollDown to="projects" id="scrollDown">
+              <ScrollLink>Scroll down</ScrollLink>
+            </ScrollDown>
+          </ScrollAnimation>
+        )}
+        
       </HeroContainer>
     </main>
   );

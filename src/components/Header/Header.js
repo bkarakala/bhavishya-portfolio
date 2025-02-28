@@ -7,8 +7,8 @@ const Header = ({ toggle }) => {
       <Nav>
         <Logo to="/">
           <img
-            src="/profilepictue.jpeg"
-            alt="logo"
+            src="/profilepic.png"
+            alt="Logo"
             style={{
               width: "50px",
               height: "50px",
